@@ -33,7 +33,7 @@ import {
 } from '../utils/datetime'
 import { typedMemo } from '../utils/react'
 import { CalendarEvent } from './CalendarEvent'
-import { HourGuideCell } from './HourGuideCell'
+
 import { HourGuideColumn } from './HourGuideColumn'
 
 const styles = StyleSheet.create({
@@ -87,14 +87,14 @@ function _CalendarBody<T extends ICalendarEventBase>({
   cellHeight,
   dateRange,
   style,
-  onLongPressCell,
-  onPressCell,
+  // onLongPressCell,
+  // onPressCell,
   events,
   onPressEvent,
   eventCellTextColor,
   eventCellStyle,
   eventCellAccessibilityProps = {},
-  calendarCellStyle,
+  // calendarCellStyle,
   calendarCellAccessibilityProps = {},
   ampm,
   showTime,
@@ -115,7 +115,7 @@ function _CalendarBody<T extends ICalendarEventBase>({
   enrichedEventsByDate,
   enableEnrichedEvents = false,
   eventsAreSorted = false,
-  timeslots = 0,
+  // timeslots = 0,
   hourComponent,
 }: CalendarBodyProps<T>) {
   const scrollView = React.useRef<ScrollView>(null)
@@ -150,19 +150,19 @@ function _CalendarBody<T extends ICalendarEventBase>({
     onSwipeHorizontal,
   })
 
-  const _onPressCell = React.useCallback(
-    (date: dayjs.Dayjs) => {
-      onPressCell && onPressCell(date.toDate())
-    },
-    [onPressCell],
-  )
+  // const _onPressCell = React.useCallback(
+  //   (date: dayjs.Dayjs) => {
+  //     onPressCell && onPressCell(date.toDate())
+  //   },
+  //   [onPressCell],
+  // )
 
-  const _onLongPressCell = React.useCallback(
-    (date: dayjs.Dayjs) => {
-      onLongPressCell && onLongPressCell(date.toDate())
-    },
-    [onLongPressCell],
-  )
+  // const _onLongPressCell = React.useCallback(
+  //   (date: dayjs.Dayjs) => {
+  //     onLongPressCell && onLongPressCell(date.toDate())
+  //   },
+  //   [onLongPressCell],
+  // )
 
   const internalEnrichedEventsByDate = useMemo(() => {
     if (enableEnrichedEvents) {
@@ -318,7 +318,7 @@ function _CalendarBody<T extends ICalendarEventBase>({
 
           {dateRange.map((date) => (
             <View style={[u['flex-1'], u['overflow-hidden']]} key={date.toString()}>
-              {hours.map((hour, index) => (
+              {/* {hours.map((hour, index) => (
                 <HourGuideCell
                   key={hour}
                   cellHeight={cellHeight}
@@ -331,7 +331,7 @@ function _CalendarBody<T extends ICalendarEventBase>({
                   calendarCellAccessibilityProps={calendarCellAccessibilityProps}
                   timeslots={timeslots}
                 />
-              ))}
+              ))} */}
               {_renderEvents(date)}
               {isToday(date) && !hideNowIndicator && (
                 <View
